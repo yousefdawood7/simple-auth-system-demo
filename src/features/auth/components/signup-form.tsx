@@ -8,13 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { Field, FieldDescription, FieldGroup } from "@/components/ui/field";
+import FormField from "@/features/auth/components/auth-fields/form-field";
 import { registerSchema, RegisterSchema } from "@/lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -42,29 +37,27 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
-              <Field>
-                <FieldLabel htmlFor="name">Full Name</FieldLabel>
-                <Input id="name" type="text" placeholder="John Doe" required />
-              </Field>
-              <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="m@example.com"
-                  required
-                />
-              </Field>
-              <Field>
-                <FieldLabel htmlFor="password">Password</FieldLabel>
-                <Input id="password" type="password" required />
-              </Field>
-              <Field>
-                <FieldLabel htmlFor="confirm-password">
-                  Confirm Password
-                </FieldLabel>
-                <Input id="confirm-password" type="password" required />
-              </Field>
+              <FormField
+                label="Full name"
+                name="fullName"
+                placeholder="Enter your Full name"
+              />
+              <FormField
+                label="Email"
+                name="email"
+                placeholder="Enter your email address"
+              />
+              <FormField
+                label="Password"
+                name="password"
+                placeholder="Enter your password"
+              />
+              <FormField
+                label="Confirm password"
+                name="passwordConfirm"
+                placeholder="Confirm your password"
+              />
+
               <FieldGroup>
                 <Field>
                   <Button type="submit">Create Account</Button>
