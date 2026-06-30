@@ -9,6 +9,7 @@ const emailSchema = z
 
 const passwordSchema = z
   .string({ error: "Password is required" })
+  .min(1, { error: "Password is required" })
   .min(8, { error: "Password should be at least 8 characters" })
   .max(32, { error: "Password should be at most 32 characters" });
 
