@@ -10,7 +10,7 @@ export const env = createEnv({
   },
 
   client: {
-    NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.url(),
+    NEXT_PUBLIC_GOOGLE_CLIENT_ID: z.string().min(32).max(128),
   },
 
   experimental__runtimeEnv: {

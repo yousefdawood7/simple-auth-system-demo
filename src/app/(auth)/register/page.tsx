@@ -1,3 +1,5 @@
+import { SignupForm } from "@/features/auth/components/signup-form";
+
 export default function Page() {
-  return <div></div>;
+  return <SignupForm className="w-full max-w-112.5" />;
 }
